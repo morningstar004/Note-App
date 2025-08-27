@@ -18,9 +18,7 @@ A simple note-taking application built with TailwindCSS.
 
 1. Clone the repository:
     ```bash
-<<<<<<< HEAD
     git clone https://github.com/morningstar004/Note-App.git
-
     ```
 2. Install dependencies:
     ```bash
