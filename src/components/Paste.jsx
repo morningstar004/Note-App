@@ -14,6 +14,7 @@ function Paste() {
   );
 
   function handleDelete(pasteId) {
+    console.log(pasteId);
     dispatch(removeFromPaste(pasteId));
   }
 
@@ -36,7 +37,8 @@ function Paste() {
           <div key={paste._id} className="p-5 border-[0.2] bg-white rounded-2xl mb-3 grid grid-cols-2 grid-row-2 gap-4 p-4">
             <span className='NoteInfo flex flex-col justify-start w-max '>
               <h3 className='font-semibold text-xl text-start px-8 pt-2 w-max'>{paste.title}</h3>
-              <p className='text-start px-8 w-max text-s'>{paste.contant}</p>
+              <p className='text-start px-8 w-max text-s'>{paste.contant 
+                ? paste.contant.split(' ').slice(0,7).join(' ') + (paste.contant.split(' ').length > 7 ? ". . ." : ''): ' no contant available'}</p>
             </span>
             <div className='flex flex-row gap-4 items-start pl-72 py-2 w-max'>
               <button className='' >

@@ -1,11 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import  toast from 'react-hot-toast';
 
-// const initialState = {
-//   pastes:localStorage.getItem("pastes")
-//     ?   JSON.parse(localStorage.getItem("pastes"))
-//     :   []
-// }
 const initialState = {
   pastes: (() => {
     try {
@@ -32,7 +27,6 @@ export const pasteSlice = createSlice({
         return;
       }
       const paste = action.payload;
-      console.log("Payload received:", paste); // Debugging log
       state.pastes.push(paste);
       localStorage.setItem("pastes",JSON.stringify(state.pastes));
       toast("Note Created Successfully");
@@ -55,8 +49,7 @@ export const pasteSlice = createSlice({
     },
     removeFromPaste: (state,action) => {
       const pasteId = action.payload;
-      console.log(pasteId);
-      const index = state.pastes.findIndex((item)=>item.id !== pasteId);
+      const index = state.pastes.findIndex((item)=>item._id === pasteId);
 
       if(index>=0){
         state.pastes.splice(index,1);
